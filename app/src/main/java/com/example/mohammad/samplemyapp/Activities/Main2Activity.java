@@ -11,19 +11,19 @@ import com.example.mohammad.samplemyapp.View.View;
 
 public class Main2Activity extends AppCompatActivity implements View.ViewLocationManager {
 
+    public static String TAG = Main2Activity.class.getSimpleName();
     Presenter.LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         locationManager = LocationManagerPresenterImpl.getInstance(this);
-
     }
 
     @Override
     public void receiveLocation(Location location) {
+
 
     }
 }
