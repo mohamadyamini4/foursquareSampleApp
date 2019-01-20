@@ -1,14 +1,16 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import java.util.ArrayList;
+
 public class Response {
-    private io.quicktype.Venue[] venues;
+    private ArrayList<Venue> venues;
     private boolean confident;
 
-    public io.quicktype.Venue[] getVenues() {
+    public ArrayList<Venue> getVenues() {
         return venues;
     }
 
-    public void setVenues(io.quicktype.Venue[] value) {
+    public void setVenues(ArrayList<Venue> value) {
         this.venues = value;
     }
 
