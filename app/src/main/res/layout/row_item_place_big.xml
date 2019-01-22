@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         app:cardElevation="5dp"
         tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="5dp">
+        tools:layout_editor_absoluteY="5dp"
+        tools:ignore="MissingConstraints">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
