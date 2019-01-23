@@ -1,7 +1,11 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Icon {
+    @SerializedName("prefix")
     private String prefix;
+    @SerializedName("suffix")
     private String suffix;
 
     public String getPrefix() {

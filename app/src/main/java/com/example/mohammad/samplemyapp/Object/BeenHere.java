@@ -1,9 +1,15 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class BeenHere {
+    @SerializedName("count")
     private long count;
+    @SerializedName("lastCheckinExpiredAt")
     private long lastCheckinExpiredAt;
+    @SerializedName("marked")
     private boolean marked;
+    @SerializedName("unconfirmedCount")
     private long unconfirmedCount;
 
     public long getCount() {

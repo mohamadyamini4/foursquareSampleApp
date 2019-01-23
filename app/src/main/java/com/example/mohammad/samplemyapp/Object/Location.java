@@ -1,15 +1,27 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Location {
+    @SerializedName("lat")
     private double lat;
+    @SerializedName("lng")
     private double lng;
+    @SerializedName("labelLatLngs")
     private LabeledLatLng[] labeledLatLngs;
+    @SerializedName("distance")
     private long distance;
+    @SerializedName("postalCode")
     private String postalCode;
+    @SerializedName("cc")
     private String cc;
+    @SerializedName("city")
     private String city;
+    @SerializedName("state")
     private String state;
+    @SerializedName("country")
     private String country;
+    @SerializedName("formattedAddress")
     private String[] formattedAddress;
 
     public double getLat() {

@@ -1,8 +1,13 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class LabeledLatLng {
+    @SerializedName("label")
     private String label;
+    @SerializedName("lat")
     private double lat;
+    @SerializedName("lng")
     private double lng;
 
     public String getLabel() {

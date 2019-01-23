@@ -1,7 +1,11 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Meta {
+    @SerializedName("code")
     private long code;
+    @SerializedName("requetid")
     private String requestid;
 
     public long getCode() {

@@ -1,7 +1,11 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class BaseResponse {
+    @SerializedName("meta")
     private Meta meta;
+    @SerializedName("response")
     private Response response;
 
     public Meta getMeta() {

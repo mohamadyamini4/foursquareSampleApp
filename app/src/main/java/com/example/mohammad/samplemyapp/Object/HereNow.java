@@ -1,8 +1,13 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class HereNow {
+    @SerializedName("count")
     private long count;
+    @SerializedName("summery")
     private String summary;
+    @SerializedName("groups")
     private Object[] groups;
 
     public long getCount() {

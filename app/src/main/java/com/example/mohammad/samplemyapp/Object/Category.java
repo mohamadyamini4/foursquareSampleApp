@@ -1,11 +1,19 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Category {
+    @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("pluralName")
     private String pluralName;
+    @SerializedName("shortName")
     private String shortName;
+    @SerializedName("icon")
     private Icon icon;
+    @SerializedName("primary")
     private boolean primary;
 
     public String getid() {

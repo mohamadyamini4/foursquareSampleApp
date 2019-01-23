@@ -1,17 +1,31 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Venue {
+    @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("contact")
     private Contact contact;
+    @SerializedName("location")
     private Location location;
+    @SerializedName("categories")
     private Category[] categories;
+    @SerializedName("verified")
     private boolean verified;
+    @SerializedName("stats")
     private Stats stats;
+    @SerializedName("beenHere")
     private BeenHere beenHere;
+    @SerializedName("hereNow")
     private HereNow hereNow;
+    @SerializedName("referralid")
     private String referralid;
+    @SerializedName("venueChains")
     private Object[] venueChains;
+    @SerializedName("hasPerk")
     private boolean hasPerk;
 
     public String getid() {

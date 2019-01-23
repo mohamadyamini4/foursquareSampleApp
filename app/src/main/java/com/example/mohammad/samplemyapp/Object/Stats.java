@@ -1,9 +1,15 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Stats {
+    @SerializedName("tipCount")
     private long tipCount;
+    @SerializedName("usersCount")
     private long usersCount;
+    @SerializedName("checkinsCount")
     private long checkinsCount;
+    @SerializedName("visitsCount")
     private long visitsCount;
 
     public long getTipCount() {

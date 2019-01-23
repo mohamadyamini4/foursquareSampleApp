@@ -1,9 +1,13 @@
 package com.example.mohammad.samplemyapp.Object;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class Response {
+    @SerializedName("venues")
     private ArrayList<Venue> venues;
+    @SerializedName("confident")
     private boolean confident;
 
     public ArrayList<Venue> getVenues() {
