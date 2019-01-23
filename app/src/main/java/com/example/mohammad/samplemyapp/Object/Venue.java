@@ -2,6 +2,8 @@ package com.example.mohammad.samplemyapp.Object;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class Venue {
     @SerializedName("id")
     private String id;
@@ -12,7 +14,7 @@ public class Venue {
     @SerializedName("location")
     private Location location;
     @SerializedName("categories")
-    private Category[] categories;
+    private ArrayList<Category> categories;
     @SerializedName("verified")
     private boolean verified;
     @SerializedName("stats")
@@ -60,12 +62,8 @@ public class Venue {
         this.location = value;
     }
 
-    public Category[] getCategories() {
+    public ArrayList<Category> getCategories() {
         return categories;
-    }
-
-    public void setCategories(Category[] value) {
-        this.categories = value;
     }
 
     public boolean getVerified() {
