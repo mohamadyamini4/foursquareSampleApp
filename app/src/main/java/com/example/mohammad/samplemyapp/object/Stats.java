@@ -1,4 +1,4 @@
-package com.example.mohammad.samplemyapp.Object;
+package com.example.mohammad.samplemyapp.object;
 
 import com.google.gson.annotations.SerializedName;
 
