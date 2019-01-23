@@ -4,12 +4,12 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.mohammad.samplemyapp.Object.Venue;
 import com.example.mohammad.samplemyapp.Present.Presenter;
 import com.example.mohammad.samplemyapp.Present.PresenterImps.FetchListPresenterImpl;
 import com.example.mohammad.samplemyapp.Present.PresenterImps.LocationManagerPresenterImpl;
 import com.example.mohammad.samplemyapp.R;
 import com.example.mohammad.samplemyapp.View.View;
+import com.example.mohammad.samplemyapp.object.Venue;
 
 import java.util.ArrayList;
 

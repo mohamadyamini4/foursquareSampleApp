@@ -1,6 +1,8 @@
-package com.example.mohammad.samplemyapp.Object;
+package com.example.mohammad.samplemyapp.object;
 
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 public class Location {
     @SerializedName("lat")
@@ -8,7 +10,7 @@ public class Location {
     @SerializedName("lng")
     private double lng;
     @SerializedName("labelLatLngs")
-    private LabeledLatLng[] labeledLatLngs;
+    private ArrayList<LabeledLatLng> labeledLatLngs;
     @SerializedName("distance")
     private long distance;
     @SerializedName("postalCode")
@@ -22,7 +24,7 @@ public class Location {
     @SerializedName("country")
     private String country;
     @SerializedName("formattedAddress")
-    private String[] formattedAddress;
+    private ArrayList<String> formattedAddress;
 
     public double getLat() {
         return lat;
@@ -40,12 +42,8 @@ public class Location {
         this.lng = value;
     }
 
-    public LabeledLatLng[] getLabeledLatLngs() {
+    public ArrayList<LabeledLatLng> getLabeledLatLngs() {
         return labeledLatLngs;
-    }
-
-    public void setLabeledLatLngs(LabeledLatLng[] value) {
-        this.labeledLatLngs = value;
     }
 
     public long getDistance() {
@@ -96,11 +94,7 @@ public class Location {
         this.country = value;
     }
 
-    public String[] getFormattedAddress() {
+    public ArrayList<String> getFormattedAddress() {
         return formattedAddress;
-    }
-
-    public void setFormattedAddress(String[] value) {
-        this.formattedAddress = value;
     }
 }

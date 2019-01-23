@@ -3,9 +3,9 @@ package com.example.mohammad.samplemyapp.Present.PresenterImps;
 import android.location.Location;
 
 import com.example.mohammad.samplemyapp.Model.Model;
-import com.example.mohammad.samplemyapp.Object.BaseResponse;
 import com.example.mohammad.samplemyapp.Present.Presenter;
 import com.example.mohammad.samplemyapp.View.View;
+import com.example.mohammad.samplemyapp.object.BaseResponse;
 
 public class FetchListPresenterImpl implements Presenter.fetchList {
 
