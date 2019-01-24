@@ -6,8 +6,9 @@ import com.example.mohammad.samplemyapp.object.BaseResponse;
 public class getListModelImpl implements Model.modelFetchList {
 
 
+
     @Override
-    public BaseResponse getList() {
-        return new BaseResponse();
+    public void getList(String Location) {
+
     }
 }
