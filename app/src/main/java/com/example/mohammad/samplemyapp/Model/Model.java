@@ -11,6 +11,6 @@ public interface Model {
     }
 
     interface modelFetchList {
-        BaseResponse getList();
+        void getList(String Location);
     }
 }
