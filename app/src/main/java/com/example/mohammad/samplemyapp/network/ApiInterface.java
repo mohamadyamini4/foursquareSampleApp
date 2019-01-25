@@ -8,9 +8,9 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("venues/explore")
+    @GET("venues/search")
     Call<BaseResponse> getPlaceList(@Query("client_id") String client_id,
-                                    @Query("secret_id") String secret_id,
+                                    @Query("client_secret") String client_secret,
                                     @Query("ll") String ll,
                                     @Query("v") String v);
 
