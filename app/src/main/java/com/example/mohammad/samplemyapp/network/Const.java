@@ -5,4 +5,5 @@ public class Const {
     public static final String CLIENT_ID = "KAURLHSXIUVHAL5UWUIHSNH14PAETE0MGOEVVIMWA4VAATUQ";
     public static final String CLIENT_SECRET = "QIFPEJBCUPCS0J1JNEGUQPLRRRF4I3UNV4GWO5UXOOB23XOY";
     public static final String VERSION = "20180323";
+    public static final String PREF_LAST_LOCATION="PREF_LAST_LOCATION";
 }
