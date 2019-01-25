@@ -16,6 +16,8 @@ public class FetchListPresenterImpl implements Presenter.fetchList, Presenter.Re
 
     View.fetchListManager viewFetchListManager;
     Model.modelFetchList modelFetchList;
+    boolean onceCall=false;
+
 
     public FetchListPresenterImpl(View.fetchListManager fetchListManager) {
         this.viewFetchListManager = fetchListManager;
@@ -26,7 +28,7 @@ public class FetchListPresenterImpl implements Presenter.fetchList, Presenter.Re
 
     @Override
     public void getList(Location location) {
-        if (getLastLocation().equals("*") || moreThan100Meters(location)){
+        if (getLastLocation().equals("*") || moreThan100Meters(location) || isOnceCall()){
             saveLocationtoPref(location);
             modelFetchList.getList(convertLocationToString(location));
         }
@@ -70,5 +72,18 @@ public class FetchListPresenterImpl implements Presenter.fetchList, Presenter.Re
             } else
                 viewFetchListManager.onreceiveListErr();
         }
+    }
+
+    public boolean isOnceCall() {
+        if (!onceCall){
+            onceCall=true;
+            return true;
+        }
+        else return false;
+
+    }
+
+    public void setOnceCall(boolean onceCall) {
+        this.onceCall = onceCall;
     }
 }
