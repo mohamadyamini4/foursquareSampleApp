@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class Main2Activity extends AppCompatActivity implements View.ViewLocationManager, View.fetchListManager {
 
     public static String TAG = Main2Activity.class.getSimpleName();
-    Presenter.LocationManager locationManager;
     Presenter.fetchList fetchList;
 
     @Override
@@ -24,12 +23,14 @@ public class Main2Activity extends AppCompatActivity implements View.ViewLocatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         LocationManagerPresenterImpl.getInstance(this).getLocation();
-        locationManager.getLocation();
         fetchList = new FetchListPresenterImpl(this);
     }
 
     @Override
     public void receiveLocation(Location location) {
+
+        if (location!=null)
+            fetchList.getList(location);
 
 
     }
