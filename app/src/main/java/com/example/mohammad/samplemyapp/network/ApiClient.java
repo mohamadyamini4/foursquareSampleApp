@@ -1,5 +1,7 @@
 package com.example.mohammad.samplemyapp.network;
 
+import android.support.annotation.NonNull;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static Retrofit retrofit = null;
-    private static int REQUEST_TIMEOUT = 60;
     private static OkHttpClient okHttpClient;
 
     public static Retrofit getClient() {
@@ -30,6 +31,7 @@ public class ApiClient {
     }
 
     private static void initOkHttp() {
+        int REQUEST_TIMEOUT = 60;
         OkHttpClient.Builder httpClient = new OkHttpClient().newBuilder()
                 .connectTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
                 .readTimeout(REQUEST_TIMEOUT, TimeUnit.SECONDS)
@@ -41,8 +43,9 @@ public class ApiClient {
         httpClient.addInterceptor(interceptor);
 
         httpClient.addInterceptor(new Interceptor() {
+            @NonNull
             @Override
-            public Response intercept(Chain chain) throws IOException {
+            public Response intercept(@NonNull Chain chain) throws IOException {
                 Request original = chain.request();
                 Request.Builder requestBuilder = original.newBuilder()
                         .addHeader("Accept", "application/json")
