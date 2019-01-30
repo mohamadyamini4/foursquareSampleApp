@@ -37,10 +37,18 @@ public class ModelLocationManagerImpl implements Model.ModelLocationManager {
     private Activity mContext;
     private Presenter.LocationManager locationManager;
 
+    @SuppressLint("MissingPermission")
     public ModelLocationManagerImpl(final Activity context) {
 
         this.mContext = context;
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
+        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+
+                mCurrentLocation = location;
+            }
+        });
         mSettingsClient = LocationServices.getSettingsClient(context);
         mLocationCallback = new LocationCallback() {
             @Override
@@ -56,6 +64,7 @@ public class ModelLocationManagerImpl implements Model.ModelLocationManager {
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(UPDATE_INTERVAL_IN_MILLISECONDS);
         mLocationRequest.setFastestInterval(FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS);
+
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
         builder.addLocationRequest(mLocationRequest);
@@ -74,11 +83,8 @@ public class ModelLocationManagerImpl implements Model.ModelLocationManager {
             @SuppressLint("MissingPermission")
             @Override
             public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
-
                 mFusedLocationClient.requestLocationUpdates(mLocationRequest,
                         mLocationCallback, Looper.myLooper());
-
-
             }
         });
     }
