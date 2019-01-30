@@ -1,5 +1,7 @@
 package com.example.mohammad.samplemyapp.Model.ModelImpls;
 
+import android.support.annotation.NonNull;
+
 import com.example.mohammad.samplemyapp.Model.Model;
 import com.example.mohammad.samplemyapp.Present.Presenter;
 import com.example.mohammad.samplemyapp.network.ApiClient;
@@ -10,7 +12,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mohammad.samplemyapp.network.Const.*;
+import static com.example.mohammad.samplemyapp.network.Const.CLIENT_ID;
+import static com.example.mohammad.samplemyapp.network.Const.CLIENT_SECRET;
+import static com.example.mohammad.samplemyapp.network.Const.VERSION;
 
 public class getListModelImpl implements Model.modelFetchList {
 
@@ -26,7 +30,7 @@ public class getListModelImpl implements Model.modelFetchList {
                 .getPlaceList(CLIENT_ID,CLIENT_SECRET,location,VERSION);
         baseResponseCall.enqueue(new Callback<BaseResponse>() {
             @Override
-            public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
+            public void onResponse(@NonNull Call<BaseResponse> call, @NonNull Response<BaseResponse> response) {
 
                 mReceivedPlaceList.receivedList(response.body());
             }
