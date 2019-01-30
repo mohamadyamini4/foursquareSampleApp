@@ -14,9 +14,9 @@ import static com.example.mohammad.samplemyapp.network.Const.PREF_LAST_LOCATION;
 
 public class FetchListPresenterImpl implements Presenter.fetchList, Presenter.ReceivedPlaceList {
 
-    View.fetchListManager viewFetchListManager;
-    Model.modelFetchList modelFetchList;
-    boolean onceCall=false;
+    private View.fetchListManager viewFetchListManager;
+    private Model.modelFetchList modelFetchList;
+    private boolean onceCall = false;
 
 
     public FetchListPresenterImpl(View.fetchListManager fetchListManager) {
@@ -24,8 +24,6 @@ public class FetchListPresenterImpl implements Presenter.fetchList, Presenter.Re
         modelFetchList = new getListModelImpl(this);
 
     }
-
-
     @Override
     public void getList(Location location) {
         if (getLastLocation().equals("*") || moreThan100Meters(location) || isOnceCall()){
