@@ -7,7 +7,6 @@ import android.os.Looper;
 
 import com.example.mohammad.samplemyapp.Model.Model;
 import com.example.mohammad.samplemyapp.Present.Presenter;
-import com.example.mohammad.samplemyapp.Present.PresenterImps.LocationManagerPresenterImpl;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -31,24 +30,19 @@ public class ModelLocationManagerImpl implements Model.ModelLocationManager {
     private LocationCallback mLocationCallback;
     private Location mCurrentLocation;
     private String mLastUpdateTime;
+    private Presenter.receivedLocation receivedLocation;
 
     private static final long UPDATE_INTERVAL_IN_MILLISECONDS = 10000;
     private static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS = 5000;
     private Activity mContext;
-    private Presenter.LocationManager locationManager;
+
 
     @SuppressLint("MissingPermission")
-    public ModelLocationManagerImpl(final Activity context) {
+    public ModelLocationManagerImpl(final Activity context, final Presenter.receivedLocation receivedLocation) {
 
+        this.receivedLocation=receivedLocation;
         this.mContext = context;
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(context);
-        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-            @Override
-            public void onSuccess(Location location) {
-
-                mCurrentLocation = location;
-            }
-        });
         mSettingsClient = LocationServices.getSettingsClient(context);
         mLocationCallback = new LocationCallback() {
             @Override
@@ -56,8 +50,8 @@ public class ModelLocationManagerImpl implements Model.ModelLocationManager {
                 super.onLocationResult(locationResult);
                 mCurrentLocation = locationResult.getLastLocation();
                 mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
-                locationManager = LocationManagerPresenterImpl.getInstance(context);
-                locationManager.getLocation();
+                receivedLocation.onReceived(mCurrentLocation);
+
             }
         };
 
@@ -73,9 +67,18 @@ public class ModelLocationManagerImpl implements Model.ModelLocationManager {
         startLocationUpdate();
     }
 
+    @SuppressLint("MissingPermission")
     @Override
-    public Location getLocationServer() {
-        return mCurrentLocation;
+    public void getLocationServer() {
+        if (mCurrentLocation==null) {
+            mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+
+                    receivedLocation.onReceived(location);
+                }
+            });
+        }
     }
 
     private void startLocationUpdate() {
