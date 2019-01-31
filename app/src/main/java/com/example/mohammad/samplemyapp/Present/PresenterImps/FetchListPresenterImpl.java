@@ -66,6 +66,7 @@ public class FetchListPresenterImpl implements Presenter.fetchList, Presenter.Re
 
         if (baseResponse instanceof BaseResponse) {
             if (((BaseResponse) baseResponse).getMeta().getCode() == 200) {
+
                 viewFetchListManager.receiveList(((BaseResponse) baseResponse).getResponse().getVenues());
             } else
                 viewFetchListManager.onreceiveListErr();

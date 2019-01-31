@@ -42,13 +42,14 @@ public class Main2Activity extends AppCompatActivity implements View.ViewLocatio
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setHasFixedSize(true);
 
 
     }
 
     @Override
     public void receiveLocation(Location location) {
-        if (location!=null)
+        if (location != null)
             fetchList.getList(location);
     }
 
@@ -56,6 +57,12 @@ public class Main2Activity extends AppCompatActivity implements View.ViewLocatio
     public void receiveList(ArrayList<Venue> venues) {
         Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
         if (venues != null && venues.size() > 0) {
+            for (int i = 0; i < venues.size(); i++) {
+                if (i % 5 == 0) {
+                    venues.get(i).setIsbig(true);
+                }
+                else venues.get(i).setIsbig(false);
+            }
             placeRecyclerAdapter.setData(venues);
             placeRecyclerAdapter.notifyDataSetChanged();
             recyclerView.setAdapter(placeRecyclerAdapter);

@@ -33,7 +33,14 @@ public class PlaceRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public int getItemViewType(int position) {
-        return ((view_type++) % 5) + 1;
+        // Just as an example, return 0 or 2 depending on position
+        // Note that unlike in ListView adapters, types don't have to be   contiguous
+        if(data.get(position).isIsbig()){
+            return 1;
+
+        }else{
+            return -1;//indicates general type, if you have more types other than video, you can use -1,-2,-3 and so on.
+        }
     }
 
     @NonNull

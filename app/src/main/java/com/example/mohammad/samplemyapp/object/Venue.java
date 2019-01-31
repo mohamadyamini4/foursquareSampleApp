@@ -30,6 +30,16 @@ public class Venue {
     @SerializedName("hasPerk")
     private boolean hasPerk;
 
+    private boolean isbig;
+
+    public boolean isIsbig() {
+        return isbig;
+    }
+
+    public void setIsbig(boolean isbig) {
+        this.isbig = isbig;
+    }
+
     public String getid() {
         return id;
     }

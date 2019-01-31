@@ -37,6 +37,7 @@
                 android:gravity="right"
                 android:text="place name"
                 app:layout_constraintTop_toBottomOf="@+id/imageView"
+                tools:ignore="RtlHardcoded"
                 tools:layout_editor_absoluteX="8dp" />
 
             <TextView
