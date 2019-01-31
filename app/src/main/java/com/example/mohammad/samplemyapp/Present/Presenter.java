@@ -2,13 +2,17 @@ package com.example.mohammad.samplemyapp.Present;
 
 import android.location.Location;
 
-import com.example.mohammad.samplemyapp.object.BaseResponse;
-
 public interface Presenter {
 
     interface LocationManager {
         void getLocation();
     }
+
+    interface receivedLocation{
+
+        void onReceived(Location location);
+    }
+
 
     interface fetchList {
         void getList(Location location);
